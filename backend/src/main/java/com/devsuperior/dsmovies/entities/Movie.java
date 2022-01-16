@@ -3,6 +3,8 @@ package com.devsuperior.dsmovies.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_movie")
@@ -23,4 +25,7 @@ public class Movie {
     private Integer count;
 
     private String image;
+
+    @OneToMany(mappedBy = "id.movie")
+    private Set<Score> scores = new HashSet<>();
 }
